@@ -3,7 +3,7 @@
 import { Download, Target } from "lucide-react"
 
 export function ProgressBar() {
-  const currentDownloads = 287000
+  const currentDownloads = 100000
   const targetDownloads = 1000000
   const progress = (currentDownloads / targetDownloads) * 100
 
