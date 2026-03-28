@@ -155,7 +155,7 @@ export default function WrappedPage() {
                   <div className="bg-[#F5C518] text-black text-xs font-bold px-2 py-1 rounded">
                     SNAPBACK
                   </div>
-                  <span className="text-zinc-400 text-sm">2025 Wrapped</span>
+                  <span className="text-zinc-400 text-sm">This Week's Wrapped</span>
                 </div>
                 <div className="text-right">
                   <div className="text-[#F5C518] font-bold text-2xl">

@@ -7,7 +7,7 @@ import {
   FileText,
   Gamepad2,
   Gift,
-  Trophy,
+  FlaskConical,
   ArrowRight,
 } from "lucide-react"
 
@@ -39,15 +39,17 @@ const modules = [
     iconColor: "text-purple-400",
     href: "/generator",
   },
+  
   {
-    name: "Wrapped",
-    description: "Generate personalized stats cards that turn every user into a marketer.",
-    icon: Trophy,
-    color: "from-[#F5C518]/20 to-[#F5C518]/5",
-    iconBg: "bg-[#F5C518]/10",
-    iconColor: "text-[#F5C518]",
-    href: "/wrapped",
+    name: "Feature Lab",
+    description: "Generate, validate, and ship features that drive growth with AI product strategy.",
+    icon: FlaskConical,
+    color: "from-orange-500/20 to-orange-600/5",
+    iconBg: "bg-orange-500/10",
+    iconColor: "text-orange-400",
+    href: "/featurelab",
   },
+  
   {
     name: "Influencer Kit",
     description: "Build custom challenge pages and outreach packages for any sports creator.",

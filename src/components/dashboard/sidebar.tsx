@@ -10,7 +10,6 @@ const navItems = [
   { name: "Pulse", icon: Activity, href: "/pulse" },
   { name: "Daily Brief", icon: FileText, href: "/brief" },
   { name: "Game Studio", icon: Gamepad2, href: "/generator" },
-  { name: "Wrapped", icon: Trophy, href: "/wrapped" },
   { name: "Influencer Kit", icon: Gift, href: "/influencer" },
   { name: "Feature Lab", icon: FlaskConical, href: "/featurelab" },
 ]
