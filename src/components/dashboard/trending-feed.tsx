@@ -3,72 +3,46 @@
 import { useState, useEffect } from "react"
 import { TrendingUp, Flame } from "lucide-react"
 
-interface Trend {
-  sport: string
+interface ESPNArticle {
   headline: string
-  relevanceScore: number
-  triviaAngles: string[]
-  suggestedAction: string
+  sport: string
 }
 
 export function TrendingFeed() {
-  const [trends, setTrends] = useState<Trend[]>([])
+  const [trends, setTrends] = useState<ESPNArticle[]>([])
   const [loading, setLoading] = useState(true)
-  const [lastUpdated, setLastUpdated] = useState<string>("")
-
-  const fetchTrends = async () => {
-    try {
-      const res = await fetch("/api/pulse");
-      const contentType = res.headers.get("content-type") || "";
-
-      if (contentType.includes("application/json")) {
-        const data = await res.json();
-        setTrends(data.trends || []);
-        setLastUpdated(new Date().toLocaleTimeString());
-        setLoading(false);
-        return;
-      }
-
-      const reader = res.body?.getReader();
-      const decoder = new TextDecoder();
-      let fullText = "";
-
-      if (!reader) return;
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value);
-        const lines = chunk.split("\n\n").filter(Boolean);
-
-        for (const line of lines) {
-          if (!line.startsWith("data: ")) continue;
-          try {
-            const json = JSON.parse(line.replace("data: ", ""));
-            if (json.chunk) fullText += json.chunk;
-            if (json.done) {
-              const match = fullText.match(/\{[\s\S]*\}/);
-              if (match) {
-                const data = JSON.parse(match[0]);
-                setTrends(data.trends || []);
-                setLastUpdated(new Date().toLocaleTimeString());
-              }
-              setLoading(false);
-            }
-          } catch {
-            continue;
-          }
-        }
-      }
-    } catch (e) {
-      console.error(e);
-      setLoading(false);
-    }
-  };
+  const [lastUpdated, setLastUpdated] = useState("")
 
   useEffect(() => {
-    // fetchTrends()
+    const fetchTrends = async () => {
+      try {
+        const urls = [
+          { url: "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news", sport: "NBA" },
+          { url: "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news", sport: "NFL" },
+          { url: "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/news", sport: "College Basketball" },
+        ]
+
+        const results = await Promise.all(
+          urls.map(async ({ url, sport }) => {
+            const res = await fetch(url)
+            const data = await res.json()
+            return data.articles?.slice(0, 1).map((a: { headline: string }) => ({
+              headline: a.headline,
+              sport,
+            })) || []
+          })
+        )
+
+        setTrends(results.flat())
+        setLastUpdated(new Date().toLocaleTimeString())
+      } catch (e) {
+        console.error(e)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchTrends()
   }, [])
 
   return (
@@ -105,26 +79,16 @@ export function TrendingFeed() {
             </div>
           ))
         ) : (
-          trends.slice(0, 3).map((trend, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-4 px-6 py-4 transition-colors hover:bg-secondary/50"
-            >
+          trends.map((trend, i) => (
+            <div key={i} className="flex items-center gap-4 px-6 py-4 transition-colors hover:bg-secondary/50">
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary text-sm font-bold text-muted-foreground">
                 {i + 1}
               </div>
               <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
-                  <h4 className="font-semibold text-foreground truncate">{trend.headline}</h4>
-                </div>
-                <p className="text-sm text-muted-foreground">{trend.sport}</p>
+                <h4 className="font-semibold text-foreground text-sm">{trend.headline}</h4>
+                <p className="text-xs text-muted-foreground">{trend.sport}</p>
               </div>
-              <div className="flex shrink-0 items-center gap-2">
-                <span className="text-xs bg-[#F5C518]/10 text-[#F5C518] px-2 py-1 rounded font-medium">
-                  {trend.relevanceScore}/10
-                </span>
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
-              </div>
+              <TrendingUp className="h-5 w-5 text-emerald-400 shrink-0" />
             </div>
           ))
         )}
