@@ -9,6 +9,7 @@ import {
   Gift,
   FlaskConical,
   ArrowRight,
+  CalendarRange
 } from "lucide-react"
 
 const modules = [
@@ -58,6 +59,16 @@ const modules = [
     iconBg: "bg-rose-500/10",
     iconColor: "text-rose-400",
     href: "/influencer",
+  },
+
+  {
+    name: "Campaign Planner",
+    description: "AI-generated week by week growth campaigns to hit your download target.",
+    icon: CalendarRange,
+    color: "from-teal-500/20 to-teal-600/5",
+    iconBg: "bg-teal-500/10",
+    iconColor: "text-teal-400",
+    href: "/campaign",
   },
 ]
 

@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Activity, FileText, Gamepad2, Gift, Zap, Trophy, FlaskConical } from "lucide-react"
+import { LayoutDashboard, Activity, FileText, Gamepad2, Gift, Zap, CalendarRange, FlaskConical } from "lucide-react"
 
 const navItems = [
   { name: "Dashboard", icon: LayoutDashboard, href: "/" },
@@ -12,6 +12,7 @@ const navItems = [
   { name: "Game Studio", icon: Gamepad2, href: "/generator" },
   { name: "Influencer Kit", icon: Gift, href: "/influencer" },
   { name: "Feature Lab", icon: FlaskConical, href: "/featurelab" },
+  { name: "Campaign Planner", icon: CalendarRange, href: "/campaign" },
 ]
 
 export function Sidebar() {
