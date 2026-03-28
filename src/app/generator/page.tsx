@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { BackButton } from "@/components/back-button"
+import { useState, Suspense } from "react";
 
 interface Question {
   question: string;
@@ -19,7 +20,7 @@ interface Game {
   questions: Question[];
 }
 
-export default function GeneratorPage() {
+function GeneratorPage() {
   const searchParams = useSearchParams();
   const [topic, setTopic] = useState(searchParams.get("topic") || "");
   const [difficulty, setDifficulty] = useState("Pro");
@@ -256,4 +257,12 @@ export default function GeneratorPage() {
       </div>
     </div>
   );
+}
+
+export default function GeneratorPageWrapper() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a]"/>}>
+      <GeneratorPage />
+    </Suspense>
+  )
 }
