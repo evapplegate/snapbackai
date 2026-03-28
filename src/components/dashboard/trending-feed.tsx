@@ -16,24 +16,9 @@ export function TrendingFeed() {
   useEffect(() => {
     const fetchTrends = async () => {
       try {
-        const urls = [
-          { url: "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news", sport: "NBA" },
-          { url: "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news", sport: "NFL" },
-          { url: "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/news", sport: "College Basketball" },
-        ]
-
-        const results = await Promise.all(
-          urls.map(async ({ url, sport }) => {
-            const res = await fetch(url)
-            const data = await res.json()
-            return data.articles?.slice(0, 1).map((a: { headline: string }) => ({
-              headline: a.headline,
-              sport,
-            })) || []
-          })
-        )
-
-        setTrends(results.flat())
+        const res = await fetch("/api/espn")
+        const data = await res.json()
+        setTrends(data.trends || [])
         setLastUpdated(new Date().toLocaleTimeString())
       } catch (e) {
         console.error(e)
