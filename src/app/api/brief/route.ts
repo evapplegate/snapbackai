@@ -8,15 +8,19 @@ export async function GET() {
     const message = await client.messages.create({
       model: "claude-sonnet-4-5",
       max_tokens: 2048,
+      tools: [
+        {
+          type: "web_search_20250305",
+          name: "web_search",
+        } as never
+      ],
       messages: [
         {
           role: "user",
-          content: `You are a sports intelligence analyst for Snapback Sports, a trivia app growing from 100K to 1M users.
+          content: `Search the web for the 3 biggest sports news stories from today or the last 24 hours.
+For each story generate a summary, audience segments, and trivia angles for Snapback Sports.
 
-Generate a morning sports briefing with 3 big sports stories relevant right now.
-For each story identify the audience segments who would care most and trivia angles.
-
-Return ONLY raw JSON, no markdown, no code blocks, no backticks:
+Return ONLY raw JSON, no markdown, no code blocks:
 {
   "date": "Today",
   "stories": [
@@ -34,12 +38,12 @@ Return ONLY raw JSON, no markdown, no code blocks, no backticks:
       ]
     });
 
-    const content = message.content[0];
-    if (content.type !== "text") {
-      return NextResponse.json({ error: "Not text" }, { status: 500 });
+    const textBlock = message.content.find(block => block.type === "text");
+    if (!textBlock || textBlock.type !== "text") {
+      return NextResponse.json({ error: "No text response" }, { status: 500 });
     }
 
-    const text = content.text.trim();
+    const text = textBlock.text.trim();
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
       return NextResponse.json({ error: "No JSON found" }, { status: 500 });
