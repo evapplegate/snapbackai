@@ -68,7 +68,7 @@ export function TrendingFeed() {
   };
 
   useEffect(() => {
-    fetchTrends()
+    // fetchTrends()
   }, [])
 
   return (
