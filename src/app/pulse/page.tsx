@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BackButton } from "@/components/back-button"
 
 interface Trend {
   sport: string;
@@ -32,6 +33,7 @@ export default function PulsePage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
       <div className="max-w-4xl mx-auto">
+        <BackButton />
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-white">Snapback Pulse</h1>

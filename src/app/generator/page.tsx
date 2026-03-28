@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { BackButton } from "@/components/back-button"
 
 interface Question {
   question: string;
@@ -18,7 +20,8 @@ interface Game {
 }
 
 export default function GeneratorPage() {
-  const [topic, setTopic] = useState("");
+  const searchParams = useSearchParams();
+  const [topic, setTopic] = useState(searchParams.get("topic") || "");
   const [difficulty, setDifficulty] = useState("Pro");
   const [count, setCount] = useState(10);
   const [loading, setLoading] = useState(false);
@@ -78,8 +81,9 @@ export default function GeneratorPage() {
   const approvedCount = game?.questions.filter((q) => q.approved).length || 0;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
+    <div className="min-h-screen bg-[rgb(10,10,10)] text-white p-8">
       <div className="max-w-4xl mx-auto">
+        <BackButton />
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">Game Studio</h1>
           <p className="text-zinc-400 mt-1">

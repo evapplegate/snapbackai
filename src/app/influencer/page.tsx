@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BackButton } from "@/components/back-button"
 
 interface Question {
   question: string;
@@ -56,6 +57,7 @@ export default function InfluencerPage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
       <div className="max-w-4xl mx-auto">
+        <BackButton />
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">Influencer Kit</h1>
           <p className="text-zinc-400 mt-1">
