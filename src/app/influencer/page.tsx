@@ -126,11 +126,43 @@ export default function InfluencerPage() {
         </div>
 
         {loading && (
-          <div className="text-center py-20">
-            <div className="text-[#F5C518] text-xl animate-pulse">
-              Building custom kit for {form.name}...
+        <div className="space-y-4">
+            <div className="text-xs text-zinc-500 uppercase tracking-wide flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
+            Building influencer kit for {form.name}...
             </div>
-          </div>
+            <div className="bg-[#161616] border border-[#262626] rounded-xl p-6">
+            <div className="flex items-center justify-between mb-4">
+                <div className="h-6 w-64 rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-8 w-16 rounded bg-[#F5C518]/20 animate-pulse"/>
+            </div>
+            <div className="h-4 w-full rounded bg-zinc-800 animate-pulse mb-2"/>
+            <div className="h-4 w-4/5 rounded bg-zinc-800 animate-pulse mb-4"/>
+            <div className="h-10 w-full rounded bg-zinc-800 animate-pulse"/>
+            </div>
+            <div className="bg-[#161616] border border-[#262626] rounded-xl p-6">
+            <div className="h-4 w-32 rounded bg-zinc-700 animate-pulse mb-4"/>
+            {[1,2,3,4,5].map((i) => (
+                <div key={i} className="bg-[#0a0a0a] rounded-lg p-4 mb-3">
+                <div className="h-5 w-3/4 rounded bg-zinc-800 animate-pulse mb-3"/>
+                <div className="grid grid-cols-2 gap-2">
+                    <div className="h-9 rounded bg-zinc-800 animate-pulse"/>
+                    <div className="h-9 rounded bg-zinc-800 animate-pulse"/>
+                    <div className="h-9 rounded bg-zinc-800 animate-pulse"/>
+                    <div className="h-9 rounded bg-zinc-800 animate-pulse"/>
+                </div>
+                </div>
+            ))}
+            </div>
+            <div className="bg-[#161616] border border-[#262626] rounded-xl p-6">
+            <div className="h-4 w-24 rounded bg-zinc-700 animate-pulse mb-4"/>
+            <div className="space-y-2">
+                <div className="h-4 w-full rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-4 w-5/6 rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-4 w-4/6 rounded bg-zinc-800 animate-pulse"/>
+            </div>
+            </div>
+        </div>
         )}
 
         {kit && !loading && (

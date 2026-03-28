@@ -149,11 +149,24 @@ export default function GeneratorPage() {
         </div>
 
         {loading && (
-          <div className="text-center py-20">
-            <div className="text-[#F5C518] text-xl animate-pulse">
-              Building your trivia game...
+        <div className="space-y-3">
+            <div className="text-xs text-zinc-500 uppercase tracking-wide flex items-center gap-2 mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
+            Building your trivia game...
             </div>
-          </div>
+            {[1,2,3,4,5].map((i) => (
+            <div key={i} className="bg-[#161616] border border-[#262626] rounded-xl p-5">
+                <div className="h-5 w-3/4 rounded bg-zinc-800 animate-pulse mb-4"/>
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
+                </div>
+                <div className="h-3 w-2/3 rounded bg-zinc-700 animate-pulse"/>
+            </div>
+            ))}
+        </div>
         )}
 
         {game && !loading && (

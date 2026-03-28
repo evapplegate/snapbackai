@@ -326,11 +326,41 @@ export default function FeatureLabPage() {
         )}
 
         {loading && (
-          <div className="text-center py-20">
-            <div className="text-[#F5C518] text-xl animate-pulse">
-              {activeTab === "generate" ? "Generating feature ideas..." : activeTab === "validate" ? "Analyzing your feature..." : "Loading feature showcase..."}
+        <div className="space-y-4">
+            <div className="text-xs text-zinc-500 uppercase tracking-wide flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
+            {activeTab === "generate" ? "Generating feature ideas..." : activeTab === "validate" ? "Analyzing your feature..." : "Loading feature showcase..."}
             </div>
-          </div>
+            {[1,2,3,4,5].map((i) => (
+            <div key={i} className="bg-[#161616] border border-[#262626] rounded-xl p-6">
+                <div className="flex items-start justify-between mb-3">
+                <div>
+                    <div className="h-6 w-48 rounded bg-zinc-800 animate-pulse mb-2"/>
+                    <div className="h-4 w-32 rounded bg-[#F5C518]/20 animate-pulse"/>
+                </div>
+                <div className="flex gap-2">
+                    <div className="h-6 w-20 rounded bg-zinc-800 animate-pulse"/>
+                    <div className="h-6 w-20 rounded bg-zinc-800 animate-pulse"/>
+                </div>
+                </div>
+                <div className="space-y-2 mb-4">
+                <div className="h-4 w-full rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-4 w-4/5 rounded bg-zinc-800 animate-pulse"/>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                <div className="bg-[#0a0a0a] rounded-lg p-3">
+                    <div className="h-3 w-24 rounded bg-zinc-700 animate-pulse mb-2"/>
+                    <div className="h-4 w-full rounded bg-zinc-700 animate-pulse"/>
+                    <div className="h-4 w-4/5 rounded bg-zinc-700 animate-pulse mt-1"/>
+                </div>
+                <div className="bg-[#0a0a0a] rounded-lg p-3">
+                    <div className="h-3 w-24 rounded bg-zinc-700 animate-pulse mb-2"/>
+                    <div className="h-5 w-24 rounded bg-[#F5C518]/20 animate-pulse"/>
+                </div>
+                </div>
+            </div>
+            ))}
+        </div>
         )}
 
         {/* Feature Results */}

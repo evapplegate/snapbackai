@@ -137,11 +137,40 @@ export default function WrappedPage() {
         </div>
 
         {loading && (
-          <div className="text-center py-20">
-            <div className="text-[#F5C518] text-xl animate-pulse">
-              Analyzing sports knowledge profile...
+        <div className="space-y-4">
+            <div className="text-xs text-zinc-500 uppercase tracking-wide flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
+            Analyzing sports knowledge profile...
             </div>
-          </div>
+            <div className="bg-[#161616] border border-[#262626] rounded-xl p-8">
+            <div className="flex items-center justify-between mb-6">
+                <div className="h-6 w-24 rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-8 w-20 rounded bg-zinc-800 animate-pulse"/>
+            </div>
+            <div className="h-4 w-24 rounded bg-zinc-800 animate-pulse mb-2"/>
+            <div className="h-8 w-48 rounded bg-[#F5C518]/20 animate-pulse mb-3"/>
+            <div className="space-y-2 mb-6">
+                <div className="h-4 w-full rounded bg-zinc-800 animate-pulse"/>
+                <div className="h-4 w-5/6 rounded bg-zinc-800 animate-pulse"/>
+            </div>
+            <div className="grid grid-cols-3 gap-4 mb-6">
+                {[1,2,3].map((i) => (
+                <div key={i} className="bg-[#0a0a0a] rounded-lg p-4">
+                    <div className="h-8 w-12 rounded bg-zinc-800 animate-pulse mx-auto mb-2"/>
+                    <div className="h-3 w-16 rounded bg-zinc-700 animate-pulse mx-auto"/>
+                </div>
+                ))}
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+                {[1,2].map((i) => (
+                <div key={i} className="bg-[#0a0a0a] rounded-lg p-4">
+                    <div className="h-3 w-16 rounded bg-zinc-700 animate-pulse mb-2"/>
+                    <div className="h-4 w-full rounded bg-zinc-800 animate-pulse"/>
+                </div>
+                ))}
+            </div>
+            </div>
+        </div>
         )}
 
         {profile && !loading && (
