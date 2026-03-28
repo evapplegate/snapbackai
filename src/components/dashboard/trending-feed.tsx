@@ -18,16 +18,54 @@ export function TrendingFeed() {
 
   const fetchTrends = async () => {
     try {
-      const res = await fetch("/api/pulse")
-      const data = await res.json()
-      setTrends(data.trends || [])
-      setLastUpdated(new Date().toLocaleTimeString())
+      const res = await fetch("/api/pulse");
+      const contentType = res.headers.get("content-type") || "";
+
+      if (contentType.includes("application/json")) {
+        const data = await res.json();
+        setTrends(data.trends || []);
+        setLastUpdated(new Date().toLocaleTimeString());
+        setLoading(false);
+        return;
+      }
+
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      let fullText = "";
+
+      if (!reader) return;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value);
+        const lines = chunk.split("\n\n").filter(Boolean);
+
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          try {
+            const json = JSON.parse(line.replace("data: ", ""));
+            if (json.chunk) fullText += json.chunk;
+            if (json.done) {
+              const match = fullText.match(/\{[\s\S]*\}/);
+              if (match) {
+                const data = JSON.parse(match[0]);
+                setTrends(data.trends || []);
+                setLastUpdated(new Date().toLocaleTimeString());
+              }
+              setLoading(false);
+            }
+          } catch {
+            continue;
+          }
+        }
+      }
     } catch (e) {
-      console.error(e)
-    } finally {
-      setLoading(false)
+      console.error(e);
+      setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     fetchTrends()

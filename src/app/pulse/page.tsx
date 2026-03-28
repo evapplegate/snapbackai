@@ -15,20 +15,64 @@ export default function PulsePage() {
   const [trends, setTrends] = useState<Trend[]>([]);
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState<Trend | null>(null);
+  const [streamText, setStreamText] = useState("");
 
   const fetchTrends = async () => {
-    setLoading(true);
-    setSelected(null);
-    try {
-      const res = await fetch("/api/pulse");
+  setLoading(true);
+  setSelected(null);
+  setTrends([]);
+
+  try {
+    const res = await fetch("/api/pulse");
+    const contentType = res.headers.get("content-type") || "";
+
+    if (contentType.includes("application/json")) {
       const data = await res.json();
       setTrends(data.trends || []);
-    } catch (e) {
-      console.error(e);
-    } finally {
       setLoading(false);
+      return;
     }
-  };
+
+    const reader = res.body?.getReader();
+    const decoder = new TextDecoder();
+    let fullText = "";
+
+    if (!reader) return;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      const chunk = decoder.decode(value);
+      const lines = chunk.split("\n\n").filter(Boolean);
+
+      for (const line of lines) {
+        if (!line.startsWith("data: ")) continue;
+        try {
+          const json = JSON.parse(line.replace("data: ", ""));
+
+          if (json.chunk) {
+            fullText += json.chunk;
+          }
+
+          if (json.done) {
+            const match = fullText.match(/\{[\s\S]*\}/);
+            if (match) {
+              const data = JSON.parse(match[0]);
+              setTrends(data.trends || []);
+            }
+            setLoading(false);
+          }
+        } catch {
+          continue;
+        }
+      }
+    }
+  } catch (e) {
+    console.error(e);
+    setLoading(false);
+  }
+}; 
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
@@ -51,11 +95,24 @@ export default function PulsePage() {
         </div>
 
         {loading && (
-          <div className="text-center py-20">
-            <div className="text-[#F5C518] text-xl animate-pulse">
-              Scanning sports world for trends...
+        <div className="space-y-3">
+            <div className="text-xs text-zinc-500 uppercase tracking-wide flex items-center gap-2 mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
+            Scanning live sports data...
             </div>
-          </div>
+            {[1,2,3,4,5].map((i) => (
+            <div key={i} className="bg-[#161616] border border-[#262626] rounded-xl p-6">
+                <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                    <div className="h-6 w-16 rounded bg-[#F5C518]/20 animate-pulse"/>
+                    <div className="h-4 rounded bg-zinc-800 animate-pulse" 
+                    style={{width: `${180 + i * 30}px`}}/>
+                </div>
+                <div className="h-4 w-10 rounded bg-zinc-800 animate-pulse"/>
+                </div>
+            </div>
+            ))}
+        </div>
         )}
 
         {!loading && trends.length === 0 && (

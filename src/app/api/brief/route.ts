@@ -17,20 +17,20 @@ export async function GET() {
       messages: [
         {
           role: "user",
-          content: `Search the web for the 3 biggest sports news stories from today or the last 24 hours.
-For each story generate a summary, audience segments, and trivia angles for Snapback Sports.
+          content: `Search the web for 3 sports headlines from today. Be concise.
+Use exact sport names: NBA, NFL, MLB, NHL, Soccer, College Basketball, Golf, Tennis, MMA, WNBA.
 
-Return ONLY raw JSON, no markdown, no code blocks:
+Return ONLY raw JSON, no markdown:
 {
-  "date": "Today",
+  "date": "today",
   "stories": [
     {
       "headline": "string",
-      "summary": "2-3 sentence summary of the story",
+      "summary": "1-2 sentences max",
       "sport": "NBA",
       "urgency": "high",
-      "audienceSegments": ["NBA fans", "Fantasy players"],
-      "triviaAngles": ["angle 1", "angle 2"]
+      "audienceSegments": ["segment 1", "segment 2", "segment 3"],
+      "triviaAngles": ["angle 1", "angle 2", "angle 3"],
     }
   ]
 }`
