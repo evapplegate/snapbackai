@@ -38,70 +38,44 @@ const DEMO_GENERATE_FEATURES: Feature[] = [
   {
     name: "Snapback Streaks",
     tagline: "Make consistency addictive",
-    description:
-      "Users earn a daily streak for every day they complete a trivia round. Streaks are visible on their profile and can be shared as cards. Losing a streak triggers a push notification with a 'Streak Shield' rescue mechanic.",
-    growthMechanism:
-      "Duolingo's streak system drives 50% of their DAU. A streak tied to a rescue mechanic creates daily re-engagement loops — users who would churn after missing a day instead come back to protect their streak.",
-    priority: "high",
-    effort: "low",
-    estimatedImpact: "+28% DAU",
-    category: "retention",
+    description: "Users earn a daily streak for every day they complete a trivia round. Streaks are visible on their profile and can be shared as cards. Losing a streak triggers a push notification with a 'Streak Shield' rescue mechanic.",
+    growthMechanism: "Duolingo's streak system drives 50% of their DAU. A streak tied to a rescue mechanic creates daily re-engagement loops — users who would churn after missing a day instead come back to protect their streak.",
+    priority: "high", effort: "low", estimatedImpact: "+28% DAU", category: "retention",
   },
   {
     name: "Rivalry Mode",
     tagline: "Challenge a specific friend",
-    description:
-      "Send a personal head-to-head trivia challenge to any friend via a deep link. They play the same 5 questions, results are compared side-by-side, winner gets a shareable 'W' card with trash talk included.",
-    growthMechanism:
-      "Personal challenges from a trusted friend are the highest-converting acquisition mechanic in mobile gaming. Wordle's entire growth was built on this model — one share creates on average 1.3 new downloads.",
-    priority: "high",
-    effort: "low",
-    estimatedImpact: "+22% new users via referral",
-    category: "viral",
+    description: "Send a personal head-to-head trivia challenge to any friend via a deep link. They play the same 5 questions, results are compared side-by-side, winner gets a shareable 'W' card with trash talk included.",
+    growthMechanism: "Personal challenges from a trusted friend are the highest-converting acquisition mechanic in mobile gaming. Wordle's entire growth was built on this model — one share creates on average 1.3 new downloads.",
+    priority: "high", effort: "low", estimatedImpact: "+22% new users via referral", category: "viral",
   },
   {
     name: "Daily Sports Debate",
     tagline: "One question. Two sides. Your verdict.",
-    description:
-      "Every morning, one AI-generated sports debate question drops — 'LeBron or Jordan?', 'Messi or Ronaldo?' Users pick a side, answer 3 supporting trivia questions, then see how the world voted.",
-    growthMechanism:
-      "Sports debate content is the most-shared category on every platform. The global vote results create a daily social moment — users screenshot and post their stance, driving organic discovery at zero cost.",
-    priority: "high",
-    effort: "low",
-    estimatedImpact: "+18% DAU",
-    category: "viral",
+    description: "Every morning, one AI-generated sports debate question drops — 'LeBron or Jordan?', 'Messi or Ronaldo?' Users pick a side, answer 3 supporting trivia questions, then see how the world voted.",
+    growthMechanism: "Sports debate content is the most-shared category on every platform. The global vote results create a daily social moment — users screenshot and post their stance, driving organic discovery at zero cost.",
+    priority: "high", effort: "low", estimatedImpact: "+18% DAU", category: "viral",
   },
   {
     name: "Fan IQ Leaderboard",
     tagline: "Prove you're the biggest fan in your city",
-    description:
-      "A real-time leaderboard ranking users by sport and geography — 'Top NBA fan in Chicago', 'Top NFL fan in Texas'. Monthly resets keep competition fresh. Top 3 per city get a shareable badge.",
-    growthMechanism:
-      "Geographic competition makes winning personally meaningful. City-level badges are highly shareable and create communities of local rivalry — organic word-of-mouth in exactly the markets Snapback needs.",
-    priority: "medium",
-    effort: "medium",
-    estimatedImpact: "+15% retention",
-    category: "retention",
+    description: "A real-time leaderboard ranking users by sport and geography — 'Top NBA fan in Chicago', 'Top NFL fan in Texas'. Monthly resets keep competition fresh. Top 3 per city get a shareable badge.",
+    growthMechanism: "Geographic competition makes winning personally meaningful. City-level badges are highly shareable and create communities of local rivalry.",
+    priority: "medium", effort: "medium", estimatedImpact: "+15% retention", category: "retention",
   },
   {
     name: "Prediction League",
     tagline: "Pick games. Earn points. Beat your friends.",
-    description:
-      "Before each game day, users make predictions on outcomes. After games resolve, correct predictions earn trivia coins redeemable for power-ups. Weekly prediction leaderboards per sport.",
-    growthMechanism:
-      "Sports prediction is a proven retention driver — 60M fantasy sports players are already conditioned to this habit. Adding a prediction layer keeps users opening the app on game days regardless of whether they have time to play full rounds.",
-    priority: "medium",
-    effort: "medium",
-    estimatedImpact: "+20% weekly active users",
-    category: "engagement",
+    description: "Before each game day, users make predictions on outcomes. After games resolve, correct predictions earn trivia coins redeemable for power-ups. Weekly prediction leaderboards per sport.",
+    growthMechanism: "Sports prediction is a proven retention driver — 60M fantasy sports players are already conditioned to this habit. Adding a prediction layer keeps users opening the app on game days.",
+    priority: "medium", effort: "medium", estimatedImpact: "+20% weekly active users", category: "engagement",
   },
 ];
 
 const DEMO_VALIDATION: Validation = {
   verdict: "build",
   confidence: 91,
-  summary:
-    "Snapback Wrapped is an exceptionally high-priority build for a sports trivia app at the 100K download stage. Personalized shareable stats cards are proven to generate outsized organic reach — Spotify Wrapped generated over 400M social posts in its first year, and that mechanic is directly replicable in the sports trivia context.",
+  summary: "Snapback Wrapped is an exceptionally high-priority build for a sports trivia app at the 100K download stage. Personalized shareable stats cards are proven to generate outsized organic reach — Spotify Wrapped generated over 400M social posts in its first year, and that mechanic is directly replicable in the sports trivia context.",
   pros: [
     "Turns every existing user into a marketing channel — zero additional ad spend required",
     "Personalized content dramatically outperforms generic content in share rates (3–5x by industry data)",
@@ -112,166 +86,98 @@ const DEMO_VALIDATION: Validation = {
     "Requires meaningful usage data to be impressive — new users with 1-2 games played will have weak cards",
     "Timing matters: a mid-year launch won't have the same urgency as a year-end or season-end release",
   ],
-  suggestion:
-    "Tie the first Wrapped release to a specific sports milestone — NBA Playoffs, NFL Draft, or March Madness — rather than a calendar year-end. This gives even newer users a defined window of stats to showcase and creates urgency to share before the moment passes.",
-  growthScore: 9,
-  retentionScore: 7,
-  viralScore: 10,
+  suggestion: "Tie the first Wrapped release to a specific sports milestone — NBA Playoffs, NFL Draft, or March Madness — rather than a calendar year-end.",
+  growthScore: 9, retentionScore: 7, viralScore: 10,
 };
 
 const DEMO_SHOWCASE_FEATURES: Feature[] = [
   {
-    name: "Snapback Wrapped",
-    tagline: "Turn every user into a marketer",
-    description:
-      "Personalized stats cards showing each user's sports IQ title, best scores, streaks, and top sport. Designed to be screenshotted and shared across all platforms.",
-    growthMechanism:
-      "Every share exposes Snapback to the user's entire social network. One coordinated Wrapped moment can generate millions of impressions overnight at zero cost.",
-    estimatedImpact: "+30% new users",
-    category: "viral",
-    buildTime: "3 days",
+    name: "Snapback Wrapped", tagline: "Turn every user into a marketer",
+    description: "Personalized stats cards showing each user's sports IQ title, best scores, streaks, and top sport.",
+    growthMechanism: "Every share exposes Snapback to the user's entire social network. One coordinated Wrapped moment can generate millions of impressions overnight at zero cost.",
+    estimatedImpact: "+30% new users", category: "viral", buildTime: "3 days",
   },
   {
-    name: "Hot Take Mode",
-    tagline: "Sports debates meet trivia",
-    description:
-      "AI generates a controversial sports take. Users vote agree or disagree, answer 5 trivia questions that challenge their position, then see global results.",
-    growthMechanism:
-      "Sports debate content is the most viral category on every platform. Shareable results with global percentages create daily social moments that drive organic discovery.",
-    estimatedImpact: "+20% new users",
-    category: "viral",
-    buildTime: "3 days",
+    name: "Hot Take Mode", tagline: "Sports debates meet trivia",
+    description: "AI generates a controversial sports take. Users vote agree or disagree, answer 5 trivia questions, then see global results.",
+    growthMechanism: "Sports debate content is the most viral category on every platform. Shareable results with global percentages create daily social moments.",
+    estimatedImpact: "+20% new users", category: "viral", buildTime: "3 days",
   },
   {
-    name: "Second Screen Mode",
-    tagline: "Play along while you watch",
-    description:
-      "Users select a live game they're watching. AI serves contextual trivia about the matchup and players between plays and at halftime.",
-    growthMechanism:
-      "Live sports is the last thing people watch in real time. Owning the second screen means a daily engaged audience every game night across every sport.",
-    estimatedImpact: "+20% session frequency",
-    category: "engagement",
-    buildTime: "5 days",
+    name: "Second Screen Mode", tagline: "Play along while you watch",
+    description: "Users select a live game they're watching. AI serves contextual trivia about the matchup and players between plays and at halftime.",
+    growthMechanism: "Live sports is the last thing people watch in real time. Owning the second screen means a daily engaged audience every game night.",
+    estimatedImpact: "+20% session frequency", category: "engagement", buildTime: "5 days",
   },
   {
-    name: "Fantasy Bridge",
-    tagline: "Trivia about your actual roster",
-    description:
-      "Users input their fantasy team and get trivia questions specifically about their players. Results include fantasy-specific trash talk for opponents.",
-    growthMechanism:
-      "60M+ Americans play fantasy sports. Zero trivia apps serve this audience directly — one well-placed post in r/fantasyfootball could drive tens of thousands of downloads.",
-    estimatedImpact: "+15% new users",
-    category: "acquisition",
-    buildTime: "2 days",
+    name: "Fantasy Bridge", tagline: "Trivia about your actual roster",
+    description: "Users input their fantasy team and get trivia questions specifically about their players.",
+    growthMechanism: "60M+ Americans play fantasy sports. Zero trivia apps serve this audience directly.",
+    estimatedImpact: "+15% new users", category: "acquisition", buildTime: "2 days",
   },
   {
-    name: "Push Notification Trivia",
-    tagline: "One question. Every morning.",
-    description:
-      "A single high-quality trivia question delivered as a push notification each morning tied to the biggest sports story of the day. Answer directly from the notification.",
-    growthMechanism:
-      "Micro-habit formation — a single daily question is the lowest-friction engagement possible. Answerable from the lock screen means engagement happens even when users wouldn't open the app.",
-    estimatedImpact: "+35% D30 retention",
-    category: "retention",
-    buildTime: "2 days",
+    name: "Push Notification Trivia", tagline: "One question. Every morning.",
+    description: "A single high-quality trivia question delivered as a push notification each morning tied to the biggest sports story of the day.",
+    growthMechanism: "Micro-habit formation — a single daily question is the lowest-friction engagement possible.",
+    estimatedImpact: "+35% D30 retention", category: "retention", buildTime: "2 days",
   },
   {
-    name: "Clip Trivia",
-    tagline: "Watch a clip. Answer questions.",
-    description:
-      "AI generates trivia questions based on sports highlight clips. Users watch 15 seconds then answer questions about what they just saw.",
-    growthMechanism:
-      "Video-based trivia is native to how Gen Z consumes sports. Every viral sports moment becomes an acquisition funnel — clips are shareable content by definition.",
-    estimatedImpact: "+25% Gen Z users",
-    category: "engagement",
-    buildTime: "7 days",
+    name: "Clip Trivia", tagline: "Watch a clip. Answer questions.",
+    description: "AI generates trivia questions based on sports highlight clips. Users watch 15 seconds then answer questions.",
+    growthMechanism: "Video-based trivia is native to how Gen Z consumes sports. Every viral sports moment becomes an acquisition funnel.",
+    estimatedImpact: "+25% Gen Z users", category: "engagement", buildTime: "7 days",
   },
 ];
 
 const PRESET_FEATURES: ShipyardItem[] = [
   {
-    id: "wrapped",
-    name: "Snapback Wrapped",
-    tagline: "Turn every user into a marketer",
-    description: "Personalized weekly stats cards showing each user's sports knowledge title, best scores, streaks, and strengths. Designed to be shared on all social platforms.",
+    id: "wrapped", name: "Snapback Wrapped", tagline: "Turn every user into a marketer",
+    description: "Personalized weekly stats cards showing each user's sports knowledge title, best scores, streaks, and strengths.",
     growthMechanism: "Every share exposes Snapback to the user's entire social network — a coordinated viral moment that could generate millions of impressions overnight.",
-    estimatedImpact: "+30% new users",
-    category: "viral",
-    buildTime: "3 days",
-    status: "ready-to-ship",
-    savedAt: new Date().toISOString(),
+    estimatedImpact: "+30% new users", category: "viral", buildTime: "3 days",
+    status: "ready-to-ship", savedAt: new Date().toISOString(),
   },
   {
-    id: "streak-wars",
-    name: "Streak Wars",
-    tagline: "Make consistency competitive",
-    description: "Users build daily streaks and challenge friends to streak battles. Longest streak at the end of the week wins. Streak data is shareable.",
-    growthMechanism: "Daily streaks create habit loops — Duolingo proved this drives 3x retention improvement. Competitive streaks add a social layer that drives new user referrals.",
-    estimatedImpact: "+25% DAU",
-    category: "retention",
-    buildTime: "4 days",
-    status: "in-review",
-    savedAt: new Date().toISOString(),
+    id: "streak-wars", name: "Streak Wars", tagline: "Make consistency competitive",
+    description: "Users build daily streaks and challenge friends to streak battles. Longest streak at the end of the week wins.",
+    growthMechanism: "Daily streaks create habit loops — Duolingo proved this drives 3x retention improvement.",
+    estimatedImpact: "+25% DAU", category: "retention", buildTime: "4 days",
+    status: "in-review", savedAt: new Date().toISOString(),
   },
   {
-    id: "hot-take",
-    name: "Hot Take Mode",
-    tagline: "Sports debates meet trivia",
-    description: "AI generates a controversial but defensible sports take. User votes agree or disagree, then answers 5 trivia questions that challenge their position. Results are shareable.",
-    growthMechanism: "Sports debate content is the most viral category on every platform. Shareable results with global agree/disagree percentages create social moments that drive discovery.",
-    estimatedImpact: "+20% new users",
-    category: "viral",
-    buildTime: "3 days",
-    status: "in-review",
-    savedAt: new Date().toISOString(),
+    id: "hot-take", name: "Hot Take Mode", tagline: "Sports debates meet trivia",
+    description: "AI generates a controversial but defensible sports take. User votes agree or disagree, then answers 5 trivia questions.",
+    growthMechanism: "Sports debate content is the most viral category on every platform.",
+    estimatedImpact: "+20% new users", category: "viral", buildTime: "3 days",
+    status: "in-review", savedAt: new Date().toISOString(),
   },
   {
-    id: "fantasy-bridge",
-    name: "Fantasy Bridge",
-    tagline: "Trivia for your fantasy roster",
-    description: "Users input their fantasy team roster and get trivia questions specifically about their players. Results are shareable with fantasy-specific trash talk.",
-    growthMechanism: "60M+ Americans play fantasy sports — zero sports trivia apps serve this audience directly. One well-placed post in r/fantasyfootball could drive tens of thousands of downloads.",
-    estimatedImpact: "+15% new users",
-    category: "acquisition",
-    buildTime: "2 days",
-    status: "idea",
-    savedAt: new Date().toISOString(),
+    id: "fantasy-bridge", name: "Fantasy Bridge", tagline: "Trivia for your fantasy roster",
+    description: "Users input their fantasy team roster and get trivia questions specifically about their players.",
+    growthMechanism: "60M+ Americans play fantasy sports — zero sports trivia apps serve this audience directly.",
+    estimatedImpact: "+15% new users", category: "acquisition", buildTime: "2 days",
+    status: "idea", savedAt: new Date().toISOString(),
   },
   {
-    id: "clip-trivia",
-    name: "Clip Trivia",
-    tagline: "Watch a clip. Answer questions.",
-    description: "AI generates trivia questions based on sports highlight clips. Users watch a 15-second clip then answer questions about what they saw.",
-    growthMechanism: "Video-based trivia is completely native to how Gen Z consumes sports. Clips themselves are shareable content — every viral sports moment becomes an acquisition funnel.",
-    estimatedImpact: "+25% Gen Z users",
-    category: "engagement",
-    buildTime: "7 days",
-    status: "idea",
-    savedAt: new Date().toISOString(),
+    id: "clip-trivia", name: "Clip Trivia", tagline: "Watch a clip. Answer questions.",
+    description: "AI generates trivia questions based on sports highlight clips. Users watch a 15-second clip then answer questions.",
+    growthMechanism: "Video-based trivia is completely native to how Gen Z consumes sports.",
+    estimatedImpact: "+25% Gen Z users", category: "engagement", buildTime: "7 days",
+    status: "idea", savedAt: new Date().toISOString(),
   },
   {
-    id: "second-screen",
-    name: "Second Screen Mode",
-    tagline: "Play along while you watch",
-    description: "User selects the game they're watching live. AI generates contextual trivia about the matchup, players, and history — served between plays and at halftime.",
-    growthMechanism: "Live sports is the last thing people watch in real time. Becoming the go-to second screen app means a daily engaged audience every game night across every sport.",
-    estimatedImpact: "+20% session frequency",
-    category: "engagement",
-    buildTime: "5 days",
-    status: "idea",
-    savedAt: new Date().toISOString(),
+    id: "second-screen", name: "Second Screen Mode", tagline: "Play along while you watch",
+    description: "User selects the game they're watching live. AI generates contextual trivia about the matchup, players, and history.",
+    growthMechanism: "Live sports is the last thing people watch in real time.",
+    estimatedImpact: "+20% session frequency", category: "engagement", buildTime: "5 days",
+    status: "idea", savedAt: new Date().toISOString(),
   },
   {
-    id: "rivalry-mode",
-    name: "Rivalry Mode",
-    tagline: "Challenge a specific friend",
-    description: "Send a personal head-to-head trivia challenge to a specific friend. They play the same questions, results get compared. Winner gets bragging rights.",
-    growthMechanism: "Personal challenges from a trusted friend are the highest-converting acquisition mechanic that exists. Wordle grew entirely on this model.",
-    estimatedImpact: "+18% new users via referral",
-    category: "viral",
-    buildTime: "3 days",
-    status: "idea",
-    savedAt: new Date().toISOString(),
+    id: "rivalry-mode", name: "Rivalry Mode", tagline: "Challenge a specific friend",
+    description: "Send a personal head-to-head trivia challenge to a specific friend. They play the same questions, results get compared.",
+    growthMechanism: "Personal challenges from a trusted friend are the highest-converting acquisition mechanic that exists.",
+    estimatedImpact: "+18% new users via referral", category: "viral", buildTime: "3 days",
+    status: "idea", savedAt: new Date().toISOString(),
   },
 ];
 
@@ -300,16 +206,9 @@ export default function FeatureLabPage() {
   const loadDemo = () => {
     setLoading(false);
     setIsDemo(true);
-    if (activeTab === "generate") {
-      setValidation(null);
-      setFeatures(DEMO_GENERATE_FEATURES);
-    } else if (activeTab === "validate") {
-      setFeatures([]);
-      setValidation(DEMO_VALIDATION);
-    } else if (activeTab === "showcase") {
-      setValidation(null);
-      setFeatures(DEMO_SHOWCASE_FEATURES);
-    }
+    if (activeTab === "generate") { setValidation(null); setFeatures(DEMO_GENERATE_FEATURES); }
+    else if (activeTab === "validate") { setFeatures([]); setValidation(DEMO_VALIDATION); }
+    else if (activeTab === "showcase") { setValidation(null); setFeatures(DEMO_SHOWCASE_FEATURES); }
   };
 
   const saveToShipyard = (feature: Feature) => {
@@ -411,7 +310,6 @@ export default function FeatureLabPage() {
           </p>
         </div>
 
-        {/* Tabs — text-xs on mobile so 4 labels fit */}
         <div className="flex gap-1 mb-8 bg-[#161616] border border-[#262626] rounded-xl p-1">
           {[
             { id: "generate", label: "💡 Generate" },
@@ -441,9 +339,7 @@ export default function FeatureLabPage() {
           <div className="bg-[#161616] border border-[#262626] rounded-xl p-6 mb-8">
             {activeTab === "generate" && (
               <div className="mb-4">
-                <label className="text-sm text-zinc-400 mb-2 block">
-                  What growth goal do you want to achieve?
-                </label>
+                <label className="text-sm text-zinc-400 mb-2 block">What growth goal do you want to achieve?</label>
                 <input
                   type="text"
                   value={input}
@@ -455,9 +351,7 @@ export default function FeatureLabPage() {
             )}
             {activeTab === "validate" && (
               <div className="mb-4">
-                <label className="text-sm text-zinc-400 mb-2 block">
-                  Describe the feature you want to validate
-                </label>
+                <label className="text-sm text-zinc-400 mb-2 block">Describe the feature you want to validate</label>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
@@ -478,13 +372,7 @@ export default function FeatureLabPage() {
                 disabled={loading || (activeTab !== "showcase" && !input.trim())}
                 className="w-full bg-[#F5C518] text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 transition disabled:opacity-50"
               >
-                {loading
-                  ? "Analyzing..."
-                  : activeTab === "generate"
-                  ? "💡 Generate Feature Ideas"
-                  : activeTab === "validate"
-                  ? "✅ Validate This Feature"
-                  : "🚀 Show Me What to Build"}
+                {loading ? "Analyzing..." : activeTab === "generate" ? "💡 Generate Feature Ideas" : activeTab === "validate" ? "✅ Validate This Feature" : "🚀 Show Me What to Build"}
               </button>
               <button
                 onClick={loadDemo}
@@ -548,20 +436,15 @@ export default function FeatureLabPage() {
                       {f.tagline && <p className="text-[#F5C518] text-sm mt-0.5">{f.tagline}</p>}
                     </div>
                     <div className="flex items-center gap-2 shrink-0 ml-2">
-                      <span className={`text-xs px-2 py-1 rounded border ${categoryColor(f.category)}`}>
-                        {f.category}
-                      </span>
+                      <span className={`text-xs px-2 py-1 rounded border ${categoryColor(f.category)}`}>{f.category}</span>
                       {f.priority && (
-                        <span className={`text-xs px-2 py-1 rounded border hidden sm:inline ${
-                          f.priority === "high" ? "text-red-400 bg-red-400/10 border-red-400/20" : "text-zinc-400 bg-zinc-400/10 border-zinc-400/20"
-                        }`}>
+                        <span className={`text-xs px-2 py-1 rounded border hidden sm:inline ${f.priority === "high" ? "text-red-400 bg-red-400/10 border-red-400/20" : "text-zinc-400 bg-zinc-400/10 border-zinc-400/20"}`}>
                           {f.priority} priority
                         </span>
                       )}
                     </div>
                   </div>
                   <p className="text-zinc-400 text-sm mb-4">{f.description}</p>
-                  {/* ↓ stacks on mobile */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                     <div className="bg-[#0a0a0a] rounded-lg p-3">
                       <p className="text-xs text-zinc-500 uppercase tracking-wide mb-1">Growth Mechanism</p>
@@ -577,9 +460,7 @@ export default function FeatureLabPage() {
                   <button
                     onClick={() => saveToShipyard(f)}
                     disabled={isSaved}
-                    className={`text-sm px-4 py-2 rounded-lg font-medium transition ${
-                      isSaved ? "bg-green-400/10 text-green-400 border border-green-400/20 cursor-default" : "bg-[#F5C518] text-black hover:bg-yellow-400"
-                    }`}
+                    className={`text-sm px-4 py-2 rounded-lg font-medium transition ${isSaved ? "bg-green-400/10 text-green-400 border border-green-400/20 cursor-default" : "bg-[#F5C518] text-black hover:bg-yellow-400"}`}
                   >
                     {isSaved ? "⚓ Saved to Shipyard" : "+ Save to Shipyard"}
                   </button>
@@ -599,7 +480,6 @@ export default function FeatureLabPage() {
                   </div>
                   <p className="text-zinc-400 text-sm mt-1">{validation.confidence}% confidence</p>
                 </div>
-                {/* scores — 3 cols, small enough to stay as-is */}
                 <div className="grid grid-cols-3 gap-3 text-center">
                   {[
                     { label: "Growth", score: validation.growthScore },
@@ -614,7 +494,6 @@ export default function FeatureLabPage() {
                 </div>
               </div>
               <p className="text-zinc-300 text-sm mb-6">{validation.summary}</p>
-              {/* ↓ pros/cons stack on mobile */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div className="bg-[#0a0a0a] rounded-lg p-4">
                   <p className="text-xs text-green-400 uppercase tracking-wide mb-3">Pros</p>
@@ -657,86 +536,85 @@ export default function FeatureLabPage() {
               <div className="text-[#F5C518] text-2xl">⚓</div>
             </div>
 
-            {(["ready-to-ship", "in-review", "idea"] as const).map(
-              (status) =>
-                shipyardByStatus[status].length > 0 && (
-                  <div key={status}>
-                    <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wide mb-4">
-                      {statusLabel(status)} ({shipyardByStatus[status].length})
-                    </h2>
-                    <div className="space-y-4">
-                      {shipyardByStatus[status].map((f) => (
-                        <div key={f.id} className="bg-[#161616] border border-[#262626] rounded-xl p-6 hover:border-[#F5C518]/30 transition">
-                          <div className="flex items-start justify-between mb-3">
-                            <div>
-                              <h3 className="text-lg font-bold text-white">{f.name}</h3>
-                              {f.tagline && <p className="text-[#F5C518] text-sm mt-0.5">{f.tagline}</p>}
-                            </div>
-                            <span className={`text-xs px-2 py-1 rounded border shrink-0 ml-2 ${categoryColor(f.category)}`}>
-                              {f.category}
-                            </span>
+            {(["ready-to-ship", "in-review", "idea"] as const).map((status) =>
+              shipyardByStatus[status].length > 0 && (
+                <div key={status}>
+                  <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wide mb-4">
+                    {statusLabel(status)} ({shipyardByStatus[status].length})
+                  </h2>
+                  <div className="space-y-4">
+                    {shipyardByStatus[status].map((f) => (
+                      <div key={f.id} className="bg-[#161616] border border-[#262626] rounded-xl p-6 hover:border-[#F5C518]/30 transition">
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <h3 className="text-lg font-bold text-white">{f.name}</h3>
+                            {f.tagline && <p className="text-[#F5C518] text-sm mt-0.5">{f.tagline}</p>}
                           </div>
-                          <p className="text-zinc-400 text-sm mb-4">{f.description}</p>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                            <div className="bg-[#0a0a0a] rounded-lg p-3">
-                              <p className="text-xs text-zinc-500 uppercase tracking-wide mb-1">Growth Mechanism</p>
-                              <p className="text-sm text-zinc-300">{f.growthMechanism}</p>
-                            </div>
-                            <div className="bg-[#0a0a0a] rounded-lg p-3">
-                              <p className="text-xs text-zinc-500 uppercase tracking-wide mb-1">Estimated Impact</p>
-                              <p className="text-sm text-[#F5C518] font-medium">{f.estimatedImpact}</p>
-                              {f.buildTime && <p className="text-xs text-zinc-500 mt-1">~{f.buildTime} to build</p>}
-                            </div>
+                          <span className={`text-xs px-2 py-1 rounded border shrink-0 ml-2 ${categoryColor(f.category)}`}>
+                            {f.category}
+                          </span>
+                        </div>
+                        <p className="text-zinc-400 text-sm mb-4">{f.description}</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                          <div className="bg-[#0a0a0a] rounded-lg p-3">
+                            <p className="text-xs text-zinc-500 uppercase tracking-wide mb-1">Growth Mechanism</p>
+                            <p className="text-sm text-zinc-300">{f.growthMechanism}</p>
                           </div>
-                          {editingNote === f.id ? (
-                            <div className="mb-4">
-                              <textarea
-                                defaultValue={f.notes || ""}
-                                onBlur={(e) => { updateNote(f.id, e.target.value); setEditingNote(null); }}
-                                placeholder="Add notes for your dev team..."
-                                rows={2}
-                                autoFocus
-                                className="w-full bg-[#0a0a0a] border border-[#F5C518]/30 rounded-lg px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none resize-none"
-                              />
-                            </div>
-                          ) : (
-                            f.notes && (
-                              <div className="mb-4 bg-[#0a0a0a] rounded-lg p-3">
-                                <p className="text-xs text-zinc-500 uppercase tracking-wide mb-1">Notes</p>
-                                <p className="text-sm text-zinc-300">{f.notes}</p>
-                              </div>
-                            )
-                          )}
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <select
-                              value={f.status}
-                              onChange={(e) => updateStatus(f.id, e.target.value as ShipyardItem["status"])}
-                              className="bg-[#0a0a0a] border border-[#262626] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#F5C518]"
-                            >
-                              <option value="idea">💡 Idea</option>
-                              <option value="in-review">🔍 In Review</option>
-                              <option value="ready-to-ship">🚀 Ready to Ship</option>
-                            </select>
-                            <button
-                              onClick={() => setEditingNote(editingNote === f.id ? null : f.id)}
-                              className="text-sm border border-[#262626] text-zinc-400 px-3 py-2 rounded-lg hover:border-[#F5C518] hover:text-[#F5C518] transition"
-                            >
-                              {f.notes ? "Edit Notes" : "+ Add Notes"}
-                            </button>
-                            {!PRESET_FEATURES.find((p) => p.id === f.id) && (
-                              <button
-                                onClick={() => removeFromShipyard(f.id)}
-                                className="text-sm border border-red-400/20 text-red-400 px-3 py-2 rounded-lg hover:bg-red-400/10 transition ml-auto"
-                              >
-                                Remove
-                              </button>
-                            )}
+                          <div className="bg-[#0a0a0a] rounded-lg p-3">
+                            <p className="text-xs text-zinc-500 uppercase tracking-wide mb-1">Estimated Impact</p>
+                            <p className="text-sm text-[#F5C518] font-medium">{f.estimatedImpact}</p>
+                            {f.buildTime && <p className="text-xs text-zinc-500 mt-1">~{f.buildTime} to build</p>}
                           </div>
                         </div>
-                      ))}
-                    </div>
+                        {editingNote === f.id ? (
+                          <div className="mb-4">
+                            <textarea
+                              defaultValue={f.notes || ""}
+                              onBlur={(e) => { updateNote(f.id, e.target.value); setEditingNote(null); }}
+                              placeholder="Add notes for your dev team..."
+                              rows={2}
+                              autoFocus
+                              className="w-full bg-[#0a0a0a] border border-[#F5C518]/30 rounded-lg px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none resize-none"
+                            />
+                          </div>
+                        ) : (
+                          f.notes && (
+                            <div className="mb-4 bg-[#0a0a0a] rounded-lg p-3">
+                              <p className="text-xs text-zinc-500 uppercase tracking-wide mb-1">Notes</p>
+                              <p className="text-sm text-zinc-300">{f.notes}</p>
+                            </div>
+                          )
+                        )}
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <select
+                            value={f.status}
+                            onChange={(e) => updateStatus(f.id, e.target.value as ShipyardItem["status"])}
+                            className="bg-[#0a0a0a] border border-[#262626] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#F5C518]"
+                          >
+                            <option value="idea">💡 Idea</option>
+                            <option value="in-review">🔍 In Review</option>
+                            <option value="ready-to-ship">🚀 Ready to Ship</option>
+                          </select>
+                          <button
+                            onClick={() => setEditingNote(editingNote === f.id ? null : f.id)}
+                            className="text-sm border border-[#262626] text-zinc-400 px-3 py-2 rounded-lg hover:border-[#F5C518] hover:text-[#F5C518] transition"
+                          >
+                            {f.notes ? "Edit Notes" : "+ Add Notes"}
+                          </button>
+                          {!PRESET_FEATURES.find((p) => p.id === f.id) && (
+                            <button
+                              onClick={() => removeFromShipyard(f.id)}
+                              className="text-sm border border-red-400/20 text-red-400 px-3 py-2 rounded-lg hover:bg-red-400/10 transition ml-auto"
+                            >
+                              Remove
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                )
+                </div>
+              )
             )}
           </div>
         )}
