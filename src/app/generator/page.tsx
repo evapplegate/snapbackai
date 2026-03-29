@@ -27,6 +27,51 @@ function GeneratorPage() {
   const [loading, setLoading] = useState(false);
   const [game, setGame] = useState<Game | null>(null);
   const [previewIndex, setPreviewIndex] = useState<number | null>(null);
+  
+  const loadDemo = () => {
+    setGame({
+      title: "NBA Finals Legends",
+      description: "Test your knowledge of the greatest NBA Finals moments in history.",
+      emoji: "🏆",
+      questions: [
+        {
+          question: "Which player won the most NBA Finals MVP awards?",
+          options: ["LeBron James", "Michael Jordan", "Magic Johnson", "Kareem Abdul-Jabbar"],
+          correct: 1,
+          fact: "Michael Jordan won 6 Finals MVP awards, all with the Chicago Bulls between 1991-1998.",
+          approved: false,
+        },
+        {
+          question: "What year did the Golden State Warriors win their first championship of their dynasty?",
+          options: ["2013", "2014", "2015", "2016"],
+          correct: 2,
+          fact: "The Warriors won their first title in 40 years in 2015, defeating the Cleveland Cavaliers 4-2.",
+          approved: false,
+        },
+        {
+          question: "Which team came back from 3-1 down to win the NBA Finals?",
+          options: ["Miami Heat", "Boston Celtics", "Cleveland Cavaliers", "Los Angeles Lakers"],
+          correct: 2,
+          fact: "The 2016 Cleveland Cavaliers became the first team in NBA history to overcome a 3-1 Finals deficit.",
+          approved: false,
+        },
+        {
+          question: "Who scored 50 points in Game 1 of the 2023 NBA Finals?",
+          options: ["Stephen Curry", "Nikola Jokic", "Jayson Tatum", "Jimmy Butler"],
+          correct: 3,
+          fact: "Jimmy Butler scored 50 points in Game 1 of the 2023 Finals, the most ever scored by a Heat player in the Finals.",
+          approved: false,
+        },
+        {
+          question: "How many consecutive Finals did LeBron James appear in from 2011-2018?",
+          options: ["4", "5", "6", "8"],
+          correct: 3,
+          fact: "LeBron appeared in 8 consecutive NBA Finals from 2011-2018, split between Miami and Cleveland.",
+          approved: false,
+        },
+      ],
+    });
+  };
 
   const generateGame = async () => {
     if (!topic.trim()) return;
@@ -137,16 +182,23 @@ function GeneratorPage() {
                 </select>
               </div>
             </div>
-
-            <button
-              onClick={generateGame}
-              disabled={loading || !topic.trim()}
-              className="bg-[#F5C518] text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 transition disabled:opacity-50"
-            >
-              {loading ? "Generating game..." : "🎮 Generate Game"}
-            </button>
+            <div className="flex gap-3"></div>
+              <button
+                onClick={generateGame}
+                disabled={loading || !topic.trim()}
+                className="bg-[#F5C518] text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 transition disabled:opacity-50"
+              >
+                {loading ? "Generating game..." : "🎮 Generate Game"}
+              </button>
+              <button
+                onClick={loadDemo}
+                disabled={loading}
+                className="border border-[#F5C518] text-[#F5C518] font-bold px-6 py-3 rounded-lg hover:bg-[#F5C518]/10 transition"
+              >
+                ⚡ Demo
+                </button>  
+            </div>
           </div>
-        </div>
 
         {loading && (
         <div className="space-y-3">

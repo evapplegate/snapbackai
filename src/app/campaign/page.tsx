@@ -45,6 +45,130 @@ const toolColors: Record<string, string> = {
   "Snapback Wrapped": "text-[#F5C518] bg-[#F5C518]/10 border-[#F5C518]/20",
 };
 
+const DEMO_CAMPAIGN: Campaign = {
+  campaignName: "Operation 1M: 90-Day Snapback Surge",
+  summary:
+    "A three-phase sprint combining influencer seeding, viral mechanic launches, and retention loops to compound daily growth from 100K to 1M downloads. Each week builds on the last — influencers seed content, viral mechanics amplify it, and retention features lock in every new user.",
+  projectedGrowth: 900000,
+  totalProjectedDownloads: 1000000,
+  keyInsight:
+    "The fastest path to 1M is not paid ads — it's turning each of your 100K existing users into a distribution channel through shareable moments, personal challenges, and content that makes them look good for sharing it.",
+  weeks: [
+    {
+      week: 1,
+      theme: "Influencer Ignition",
+      goals: [
+        "Launch 5 custom influencer challenge pages",
+        "Seed content across NFL, NBA, and College Basketball audiences",
+        "Establish baseline push notification open rate",
+      ],
+      actions: [
+        {
+          tool: "Snapback Pulse",
+          action: "Run a full trend scan to identify the 3 highest-virality sports stories this week. Brief the team daily on which topics have the most social momentum.",
+          expectedImpact: "Ensures all content and outreach is tied to what sports fans are already talking about — 2–3x higher engagement vs. evergreen content",
+        },
+        {
+          tool: "Influencer Kit",
+          action: "Generate custom challenge kits for 5 mid-tier influencers (100K–1M followers) across NFL and NBA niches. Prioritize creators whose audiences skew 18–30 male.",
+          expectedImpact: "Mid-tier influencer posts average 3–5% engagement vs. 0.5–1% for mega-influencers. 5 posts at 200K avg reach = 1M impressions, est. 8,000–15,000 new downloads at 1–1.5% conversion",
+        },
+        {
+          tool: "Game Studio",
+          action: "Build a 'March Madness IQ' trivia game tied to this week's tournament action. Approve all questions, export JSON, and have it live in the app by Wednesday.",
+          expectedImpact: "Timely content drives 40% higher session starts vs. evergreen trivia. Tournament content has a 7-day virality window — launch now.",
+        },
+      ],
+      kpi: "Influencer post reach and click-through rate to app store",
+      projectedNewDownloads: 18000,
+    },
+    {
+      week: 2,
+      theme: "Viral Mechanic Launch",
+      goals: [
+        "Ship Snapback Wrapped v1 tied to March Madness",
+        "Activate Rivalry Mode for head-to-head challenges",
+        "Hit 500 user-generated shares in first 48 hours",
+      ],
+      actions: [
+        {
+          tool: "Snapback Wrapped",
+          action: "Launch personalized March Madness Wrapped cards showing each user's tournament IQ score, correct picks, and sport rank. Push notification to all 100K+ users on Tuesday at 7pm EST.",
+          expectedImpact: "Spotify Wrapped generated 400M+ posts in year one. A sports-specific moment tied to the biggest tournament in college sports gives Snapback a cultural hook. Target: 2–5% share rate = 2,000–5,000 organic shares, est. 25,000–40,000 new downloads",
+        },
+        {
+          tool: "Feature Lab",
+          action: "Validate Rivalry Mode mechanics — specifically the deep-link challenge flow and results comparison card. Use the Validate tab to pressure-test the retention loop before ship.",
+          expectedImpact: "Personal challenges from a trusted friend convert at 15–25% vs. 1–2% for cold ad traffic. Rivalry Mode is the highest-ROI acquisition mechanic available at this stage.",
+        },
+        {
+          tool: "Daily Brief",
+          action: "Generate daily briefs Monday–Friday and extract the top trivia angle for a push notification question. A/B test 'hype' tone vs. 'trivia hook' tone on Tuesday and Thursday.",
+          expectedImpact: "Push notification open rate industry benchmark is 4–7% for sports apps. Tied to real news, expect 8–12%. Daily engagement habit formation begins in week 2.",
+        },
+      ],
+      kpi: "Wrapped share count and Rivalry Mode challenge send rate",
+      projectedNewDownloads: 42000,
+    },
+    {
+      week: 3,
+      theme: "Community Compounding",
+      goals: [
+        "Expand influencer program to 10 additional creators",
+        "Launch Fan IQ Leaderboard by city",
+        "Hit 40% D7 retention on week 2 new users",
+      ],
+      actions: [
+        {
+          tool: "Influencer Kit",
+          action: "Generate 10 new influencer kits targeting soccer, MLB Opening Day, and college football niches. Use the DM drafts directly — edit the [EDIT BEFORE SENDING] placeholder with one personal detail per creator.",
+          expectedImpact: "Expanding from 5 to 15 active influencer relationships triples weekly organic reach. MLB Opening Day (April) is a fresh virality window — hitting it in week 3 captures peak interest.",
+        },
+        {
+          tool: "Snapback Pulse",
+          action: "Use trend data to identify the single highest-score sports topic this week. Build a limited-time '48-Hour Challenge' around it in Game Studio and push to all users.",
+          expectedImpact: "Limited-time challenges drive 60% higher completion rates than evergreen content. FOMO mechanics are proven to spike daily opens for 2–3 days after launch.",
+        },
+        {
+          tool: "Feature Lab",
+          action: "Run Generate mode with the goal 'increase D7 retention from 30% to 45%'. Review the top 3 feature ideas with the team and move the highest-confidence one to Shipyard In Review.",
+          expectedImpact: "Every 10% improvement in D7 retention compounds — at 100K users, moving from 30% to 40% retention generates 10,000 more monthly active users without a single new download.",
+        },
+      ],
+      kpi: "D7 retention rate on cohort from week 2 and leaderboard daily active users",
+      projectedNewDownloads: 67000,
+    },
+    {
+      week: 4,
+      theme: "Growth Flywheel",
+      goals: [
+        "Close the loop — referral mechanic live",
+        "10+ influencer posts live simultaneously",
+        "Campaign retrospective and month 2 plan",
+      ],
+      actions: [
+        {
+          tool: "Game Studio",
+          action: "Build 3 new trivia games tied to the week's top Pulse trends. Maintain a content calendar of 2 new games per week from this point forward — this is now a repeatable production pipeline.",
+          expectedImpact: "Fresh content is the #1 driver of return visits. Apps that publish 2+ new content pieces per week show 35% higher MAU vs. static content libraries.",
+        },
+        {
+          tool: "Influencer Kit",
+          action: "Re-engage the 5 week-1 influencers with a follow-up kit: new personalized challenge page, updated stats from their first post's performance, and a 'round 2' DM draft.",
+          expectedImpact: "Second-touch influencer posts outperform first-touch by 20–40% because the audience has seen the brand once. Creator relationships compound — treat them as long-term partners.",
+        },
+        {
+          tool: "Feature Lab",
+          action: "Run Showcase mode to generate the month 2 feature roadmap. Move Snapback Wrapped Season 2 and Prediction League to Shipyard In Review. Present to the team as the month 2 plan.",
+          expectedImpact: "A documented, prioritized roadmap reduces planning overhead by 50% and ensures the team is always building the highest-impact features. Month 2 compounding depends on what gets scoped in week 4.",
+        },
+      ],
+      kpi: "Total downloads vs. 30-day target of 127K and referral mechanic k-factor",
+      projectedNewDownloads: 89000,
+    },
+  ],
+};
+
 export default function CampaignPage() {
   const [currentDownloads, setCurrentDownloads] = useState("100000");
   const [targetDownloads, setTargetDownloads] = useState("1000000");
@@ -57,6 +181,7 @@ export default function CampaignPage() {
   const [loading, setLoading] = useState(false);
   const [campaign, setCampaign] = useState<Campaign | null>(null);
   const [expandedWeek, setExpandedWeek] = useState<number | null>(1);
+  const [isDemo, setIsDemo] = useState(false);
 
   const toggleFocus = (area: string) => {
     setFocusAreas((prev) =>
@@ -66,6 +191,7 @@ export default function CampaignPage() {
 
   const generate = async () => {
     setLoading(true);
+    setIsDemo(false);
     setCampaign(null);
     try {
       const res = await fetch("/api/campaign", {
@@ -88,6 +214,13 @@ export default function CampaignPage() {
     }
   };
 
+  const loadDemo = () => {
+    setLoading(false);
+    setIsDemo(true);
+    setCampaign(DEMO_CAMPAIGN);
+    setExpandedWeek(1);
+  };
+
   const formatNumber = (n: number) => {
     if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
     if (n >= 1000) return `${(n / 1000).toFixed(0)}K`;
@@ -98,8 +231,16 @@ export default function CampaignPage() {
     <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
       <div className="max-w-4xl mx-auto">
         <BackButton />
+
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white">Campaign Planner</h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-3xl font-bold text-white">Campaign Planner</h1>
+            {isDemo && (
+              <span className="bg-[#F5C518] text-black text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">
+                Demo
+              </span>
+            )}
+          </div>
           <p className="text-zinc-400 mt-1">
             AI-generated growth campaigns — week by week actions to hit your download target
           </p>
@@ -159,50 +300,59 @@ export default function CampaignPage() {
             </div>
           </div>
 
-          <button
-            onClick={generate}
-            disabled={loading || focusAreas.length === 0}
-            className="w-full bg-[#F5C518] text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 transition disabled:opacity-50"
-          >
-            {loading ? "Building your campaign..." : "📋 Generate Campaign Plan"}
-          </button>
+          <div className="flex flex-col gap-3">
+            <button
+              onClick={generate}
+              disabled={loading || focusAreas.length === 0}
+              className="w-full bg-[#F5C518] text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 transition disabled:opacity-50"
+            >
+              {loading ? "Building your campaign..." : "📋 Generate Campaign Plan"}
+            </button>
+            <button
+              onClick={loadDemo}
+              disabled={loading}
+              className="w-full border border-[#F5C518] text-[#F5C518] font-bold px-6 py-3 rounded-lg hover:bg-[#F5C518]/10 transition disabled:opacity-50"
+            >
+              ⚡ Demo
+            </button>
+          </div>
         </div>
 
         {loading && (
-        <div className="space-y-4">
+          <div className="space-y-4">
             <div className="text-xs text-zinc-500 uppercase tracking-wide flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
-            Building your growth campaign...
+              <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse" />
+              Building your growth campaign...
             </div>
             <div className="bg-[#161616] border border-[#F5C518]/20 rounded-xl p-6">
-            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-start justify-between mb-4">
                 <div>
-                <div className="h-7 w-64 rounded bg-zinc-800 animate-pulse mb-2"/>
-                <div className="h-4 w-full rounded bg-zinc-800 animate-pulse"/>
-                <div className="h-4 w-4/5 rounded bg-zinc-800 animate-pulse mt-1"/>
+                  <div className="h-7 w-64 rounded bg-zinc-800 animate-pulse mb-2" />
+                  <div className="h-4 w-full rounded bg-zinc-800 animate-pulse" />
+                  <div className="h-4 w-4/5 rounded bg-zinc-800 animate-pulse mt-1" />
                 </div>
-                <div className="h-10 w-24 rounded bg-[#F5C518]/20 animate-pulse"/>
+                <div className="h-10 w-24 rounded bg-[#F5C518]/20 animate-pulse" />
+              </div>
+              <div className="bg-[#0a0a0a] rounded-lg p-4">
+                <div className="h-3 w-20 rounded bg-zinc-700 animate-pulse mb-2" />
+                <div className="h-4 w-full rounded bg-zinc-700 animate-pulse" />
+              </div>
             </div>
-            <div className="bg-[#0a0a0a] rounded-lg p-4">
-                <div className="h-3 w-20 rounded bg-zinc-700 animate-pulse mb-2"/>
-                <div className="h-4 w-full rounded bg-zinc-700 animate-pulse"/>
-            </div>
-            </div>
-            {[1,2,3,4].map((i) => (
-            <div key={i} className="bg-[#161616] border border-[#262626] rounded-xl overflow-hidden">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="bg-[#161616] border border-[#262626] rounded-xl overflow-hidden">
                 <div className="flex items-center justify-between p-5">
-                <div className="flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-[#F5C518]/20 animate-pulse"/>
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-lg bg-[#F5C518]/20 animate-pulse" />
                     <div>
-                    <div className="h-5 w-48 rounded bg-zinc-800 animate-pulse mb-2"/>
-                    <div className="h-3 w-32 rounded bg-zinc-700 animate-pulse"/>
+                      <div className="h-5 w-48 rounded bg-zinc-800 animate-pulse mb-2" />
+                      <div className="h-3 w-32 rounded bg-zinc-700 animate-pulse" />
                     </div>
+                  </div>
+                  <div className="h-6 w-16 rounded bg-[#F5C518]/20 animate-pulse" />
                 </div>
-                <div className="h-6 w-16 rounded bg-[#F5C518]/20 animate-pulse"/>
-                </div>
-            </div>
+              </div>
             ))}
-        </div>
+          </div>
         )}
 
         {campaign && !loading && (
@@ -228,10 +378,7 @@ export default function CampaignPage() {
 
             <div className="space-y-3">
               {campaign.weeks.map((week) => (
-                <div
-                  key={week.week}
-                  className="bg-[#161616] border border-[#262626] rounded-xl overflow-hidden"
-                >
+                <div key={week.week} className="bg-[#161616] border border-[#262626] rounded-xl overflow-hidden">
                   <button
                     onClick={() => setExpandedWeek(expandedWeek === week.week ? null : week.week)}
                     className="w-full flex items-center justify-between p-5 hover:bg-[#1a1a1a] transition"
@@ -266,7 +413,6 @@ export default function CampaignPage() {
                           ))}
                         </div>
                       </div>
-
                       <p className="text-xs text-zinc-500 uppercase tracking-wide mb-3">Actions</p>
                       <div className="space-y-3">
                         {week.actions.map((action, i) => (

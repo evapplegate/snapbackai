@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BackButton } from "@/components/back-button"
+import { BackButton } from "@/components/back-button";
 
 interface Question {
   question: string;
@@ -19,6 +19,45 @@ interface InfluencerKit {
   tweetScript: string;
 }
 
+const DEMO_KIT: InfluencerKit = {
+  pageTitle: "Pat McAfee's Ultimate NFL IQ Challenge",
+  slug: "pat-mcafee-nfl-iq",
+  opportunityScore: 10,
+  fitReason:
+    "Pat McAfee commands one of the most engaged sports audiences on the internet — 3M+ YouTube subscribers and a fanbase that skews exactly toward Snapback's 18–34 male core demographic. His audience already loves trivia-style debates and hot takes, making a custom Snapback challenge a natural fit that won't feel like an ad.",
+  questions: [
+    {
+      question: "Pat McAfee played for which NFL team during his entire 8-year career?",
+      options: ["New England Patriots", "Indianapolis Colts", "Pittsburgh Steelers", "Green Bay Packers"],
+      correct: 1,
+    },
+    {
+      question: "Which punter record did McAfee break in his first Pro Bowl season?",
+      options: ["Most punts in a season", "Highest gross average in AFC history", "Longest punt in Super Bowl history", "Most punts downed inside the 20"],
+      correct: 1,
+    },
+    {
+      question: "Before ESPN, Pat McAfee's show was independently distributed on which platform first?",
+      options: ["Twitch", "Barstool Sports", "YouTube / his own network", "SiriusXM"],
+      correct: 2,
+    },
+    {
+      question: "McAfee is known for his weekly segment with which Green Bay Packers quarterback?",
+      options: ["Jordan Love", "Aaron Rodgers", "Brett Favre", "Matt Flynn"],
+      correct: 1,
+    },
+    {
+      question: "Which college did Pat McAfee attend before being drafted by the Colts?",
+      options: ["Penn State", "Ohio State", "West Virginia", "Michigan"],
+      correct: 2,
+    },
+  ],
+  dmDraft:
+    "Hey Pat — huge fan of the show. We're building Snapback Sports into the #1 trivia app for NFL fans and we built a custom 'Pat McAfee NFL IQ Challenge' specifically for your audience. Your fans would absolutely destroy it (or embarrass themselves trying). Zero cost, takes 10 min to post — happy to send the full kit. Worth a look? [EDIT BEFORE SENDING]",
+  tweetScript:
+    "I just took the Snapback Sports NFL IQ Challenge and honestly some of these questions are HARD. Think you know more about the NFL than me? Prove it 👇 snapbacksports.com/challenge/pat-mcafee-nfl-iq",
+};
+
 export default function InfluencerPage() {
   const [form, setForm] = useState({
     name: "",
@@ -28,11 +67,13 @@ export default function InfluencerPage() {
   const [loading, setLoading] = useState(false);
   const [kit, setKit] = useState<InfluencerKit | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
+  const [isDemo, setIsDemo] = useState(false);
 
   const generate = async () => {
     if (!form.name.trim()) return;
     setLoading(true);
     setKit(null);
+    setIsDemo(false);
     try {
       const res = await fetch("/api/influencer", {
         method: "POST",
@@ -48,6 +89,12 @@ export default function InfluencerPage() {
     }
   };
 
+  const loadDemo = () => {
+    setLoading(false);
+    setIsDemo(true);
+    setKit(DEMO_KIT);
+  };
+
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
     setCopied(label);
@@ -58,8 +105,16 @@ export default function InfluencerPage() {
     <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
       <div className="max-w-4xl mx-auto">
         <BackButton />
+
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white">Influencer Kit</h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-3xl font-bold text-white">Influencer Kit</h1>
+            {isDemo && (
+              <span className="bg-[#F5C518] text-black text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">
+                Demo
+              </span>
+            )}
+          </div>
           <p className="text-zinc-400 mt-1">
             Build custom challenge pages and outreach for any sports creator
           </p>
@@ -104,7 +159,9 @@ export default function InfluencerPage() {
                 </label>
                 <select
                   value={form.audience}
-                  onChange={(e) => setForm({ ...form, audience: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, audience: e.target.value })
+                  }
                   className="w-full bg-[#0a0a0a] border border-[#262626] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#F5C518]"
                 >
                   <option>Sports fans aged 18-35</option>
@@ -118,51 +175,58 @@ export default function InfluencerPage() {
             <button
               onClick={generate}
               disabled={loading || !form.name.trim()}
-              className="bg-[#F5C518] text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 transition disabled:opacity-50"
+              className="w-full bg-[#F5C518] text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-400 transition disabled:opacity-50"
             >
               {loading ? "Building influencer kit..." : "🎯 Generate Influencer Kit"}
+            </button>
+            <button
+              onClick={loadDemo}
+              disabled={loading}
+              className="w-full border border-[#F5C518] text-[#F5C518] font-bold px-6 py-3 rounded-lg hover:bg-[#F5C518]/10 transition disabled:opacity-50"
+            >
+              ⚡ Demo
             </button>
           </div>
         </div>
 
         {loading && (
-        <div className="space-y-4">
+          <div className="space-y-4">
             <div className="text-xs text-zinc-500 uppercase tracking-wide flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
-            Building influencer kit for {form.name}...
+              <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse" />
+              Building influencer kit for {form.name}...
             </div>
             <div className="bg-[#161616] border border-[#262626] rounded-xl p-6">
-            <div className="flex items-center justify-between mb-4">
-                <div className="h-6 w-64 rounded bg-zinc-800 animate-pulse"/>
-                <div className="h-8 w-16 rounded bg-[#F5C518]/20 animate-pulse"/>
-            </div>
-            <div className="h-4 w-full rounded bg-zinc-800 animate-pulse mb-2"/>
-            <div className="h-4 w-4/5 rounded bg-zinc-800 animate-pulse mb-4"/>
-            <div className="h-10 w-full rounded bg-zinc-800 animate-pulse"/>
+              <div className="flex items-center justify-between mb-4">
+                <div className="h-6 w-64 rounded bg-zinc-800 animate-pulse" />
+                <div className="h-8 w-16 rounded bg-[#F5C518]/20 animate-pulse" />
+              </div>
+              <div className="h-4 w-full rounded bg-zinc-800 animate-pulse mb-2" />
+              <div className="h-4 w-4/5 rounded bg-zinc-800 animate-pulse mb-4" />
+              <div className="h-10 w-full rounded bg-zinc-800 animate-pulse" />
             </div>
             <div className="bg-[#161616] border border-[#262626] rounded-xl p-6">
-            <div className="h-4 w-32 rounded bg-zinc-700 animate-pulse mb-4"/>
-            {[1,2,3,4,5].map((i) => (
+              <div className="h-4 w-32 rounded bg-zinc-700 animate-pulse mb-4" />
+              {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="bg-[#0a0a0a] rounded-lg p-4 mb-3">
-                <div className="h-5 w-3/4 rounded bg-zinc-800 animate-pulse mb-3"/>
-                <div className="grid grid-cols-2 gap-2">
-                    <div className="h-9 rounded bg-zinc-800 animate-pulse"/>
-                    <div className="h-9 rounded bg-zinc-800 animate-pulse"/>
-                    <div className="h-9 rounded bg-zinc-800 animate-pulse"/>
-                    <div className="h-9 rounded bg-zinc-800 animate-pulse"/>
+                  <div className="h-5 w-3/4 rounded bg-zinc-800 animate-pulse mb-3" />
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="h-9 rounded bg-zinc-800 animate-pulse" />
+                    <div className="h-9 rounded bg-zinc-800 animate-pulse" />
+                    <div className="h-9 rounded bg-zinc-800 animate-pulse" />
+                    <div className="h-9 rounded bg-zinc-800 animate-pulse" />
+                  </div>
                 </div>
-                </div>
-            ))}
+              ))}
             </div>
             <div className="bg-[#161616] border border-[#262626] rounded-xl p-6">
-            <div className="h-4 w-24 rounded bg-zinc-700 animate-pulse mb-4"/>
-            <div className="space-y-2">
-                <div className="h-4 w-full rounded bg-zinc-800 animate-pulse"/>
-                <div className="h-4 w-5/6 rounded bg-zinc-800 animate-pulse"/>
-                <div className="h-4 w-4/6 rounded bg-zinc-800 animate-pulse"/>
+              <div className="h-4 w-24 rounded bg-zinc-700 animate-pulse mb-4" />
+              <div className="space-y-2">
+                <div className="h-4 w-full rounded bg-zinc-800 animate-pulse" />
+                <div className="h-4 w-5/6 rounded bg-zinc-800 animate-pulse" />
+                <div className="h-4 w-4/6 rounded bg-zinc-800 animate-pulse" />
+              </div>
             </div>
-            </div>
-        </div>
+          </div>
         )}
 
         {kit && !loading && (
@@ -183,7 +247,12 @@ export default function InfluencerPage() {
                   snapbacksports.com/challenge/{kit.slug}
                 </span>
                 <button
-                  onClick={() => copyToClipboard(`snapbacksports.com/challenge/${kit.slug}`, "url")}
+                  onClick={() =>
+                    copyToClipboard(
+                      `snapbacksports.com/challenge/${kit.slug}`,
+                      "url"
+                    )
+                  }
                   className="text-[#F5C518] text-xs hover:underline"
                 >
                   {copied === "url" ? "Copied!" : "Copy URL"}
@@ -211,7 +280,8 @@ export default function InfluencerPage() {
                               : "bg-[#1f1f1f] text-zinc-400"
                           }`}
                         >
-                          {j === q.correct ? "✓ " : ""}{opt}
+                          {j === q.correct ? "✓ " : ""}
+                          {opt}
                         </div>
                       ))}
                     </div>
