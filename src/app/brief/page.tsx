@@ -34,9 +34,9 @@ const DEMO_BRIEF: Brief = {
       ],
     },
     {
-      headline: "Victor Wembanyama Named NBA MVP in Unanimous Vote — Youngest Ever at 22",
+      headline: "Victor Wembanyama surges to #1 in MVP Race",
       summary:
-        "The San Antonio Spurs center became the youngest unanimous MVP in NBA history, finishing the season averaging 28.4 points, 12.1 rebounds, and 4.6 blocks per game. His historic defensive metrics have drawn comparisons to peak Hakeem Olajuwon and prompted the league to explore new statistical categories.",
+        "The San Antonio Spurs center surged to #1 in MVP race today, averaging 28.4 points, 12.1 rebounds, and 4.6 blocks per game. His historic defensive metrics have drawn comparisons to peak Hakeem Olajuwon and prompted the league to explore new statistical categories.",
       sport: "NBA",
       urgency: "high",
       audienceSegments: ["NBA fans", "Fantasy basketball players", "Gen Z sports fans", "International audience"],

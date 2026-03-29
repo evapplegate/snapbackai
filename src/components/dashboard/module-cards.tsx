@@ -10,7 +10,8 @@ import {
   FlaskConical,
   ArrowRight,
   CalendarRange,
-  Bell
+  Bell,
+  Users
 } from "lucide-react"
 
 const modules = [
@@ -80,6 +81,16 @@ const modules = [
   iconBg: "bg-yellow-500/10",
   iconColor: "text-yellow-400",
   href: "/push",
+  },
+
+  {
+  name: "Audience Intelligence",
+  description: "Discover where your best users engage most — and find the communities where your next users are hiding.",
+  icon: Users,
+  color: "from-cyan-500/20 to-cyan-600/5",
+  iconBg: "bg-cyan-500/10",
+  iconColor: "text-cyan-400",
+  href: "/audience",
   },
 ]
 
