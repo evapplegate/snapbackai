@@ -126,7 +126,8 @@ function GeneratorPage() {
   const approvedCount = game?.questions.filter((q) => q.approved).length || 0;
 
   return (
-    <div className="min-h-screen bg-[rgb(10,10,10)] text-white p-8">
+    // ↓ p-8 → p-4 md:p-8
+    <div className="min-h-screen bg-[rgb(10,10,10)] text-white p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         <BackButton />
         <div className="mb-8">
@@ -151,8 +152,9 @@ function GeneratorPage() {
               />
             </div>
 
-            <div className="flex gap-4">
-              <div className="flex-1">
+            {/* ↓ flex gap-4 → grid, stacks to 1-col on mobile */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
                 <label className="text-sm text-zinc-400 mb-2 block">
                   Difficulty
                 </label>
@@ -167,7 +169,7 @@ function GeneratorPage() {
                 </select>
               </div>
 
-              <div className="flex-1">
+              <div>
                 <label className="text-sm text-zinc-400 mb-2 block">
                   Questions
                 </label>
@@ -196,41 +198,42 @@ function GeneratorPage() {
                 className="border border-[#F5C518] text-[#F5C518] font-bold px-6 py-3 rounded-lg hover:bg-[#F5C518]/10 transition"
               >
                 ⚡ Demo
-                </button>  
+              </button>
             </div>
           </div>
 
         {loading && (
-        <div className="space-y-3">
+          <div className="space-y-3">
             <div className="text-xs text-zinc-500 uppercase tracking-wide flex items-center gap-2 mb-4">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
-            Building your trivia game...
+              <span className="h-1.5 w-1.5 rounded-full bg-[#F5C518] animate-pulse"/>
+              Building your trivia game...
             </div>
             {[1,2,3,4,5].map((i) => (
-            <div key={i} className="bg-[#161616] border border-[#262626] rounded-xl p-5">
+              <div key={i} className="bg-[#161616] border border-[#262626] rounded-xl p-5">
                 <div className="h-5 w-3/4 rounded bg-zinc-800 animate-pulse mb-4"/>
                 <div className="grid grid-cols-2 gap-2 mb-3">
-                <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
-                <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
-                <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
-                <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
+                  <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
+                  <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
+                  <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
+                  <div className="h-10 rounded bg-zinc-800 animate-pulse"/>
                 </div>
                 <div className="h-3 w-2/3 rounded bg-zinc-700 animate-pulse"/>
-            </div>
+              </div>
             ))}
-        </div>
+          </div>
         )}
 
         {game && !loading && (
           <div>
-            <div className="flex items-center justify-between mb-6">
+            {/* ↓ stacks on mobile, row on sm+ */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
               <div>
                 <h2 className="text-2xl font-bold">
                   {game.emoji} {game.title}
                 </h2>
                 <p className="text-zinc-400 text-sm mt-1">{game.description}</p>
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-3 shrink-0">
                 <button
                   onClick={approveAll}
                   className="text-sm border border-[#F5C518] text-[#F5C518] px-4 py-2 rounded-lg hover:bg-[#F5C518]/10 transition"
@@ -252,13 +255,11 @@ function GeneratorPage() {
                 <div
                   key={i}
                   className={`bg-[#161616] border rounded-xl p-5 transition ${
-                    q.approved
-                      ? "border-[#F5C518]"
-                      : "border-[#262626]"
+                    q.approved ? "border-[#F5C518]" : "border-[#262626]"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <p className="font-medium text-white mb-3">
                         {i + 1}. {q.question}
                       </p>
@@ -281,7 +282,7 @@ function GeneratorPage() {
                       </p>
                     </div>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 shrink-0">
                       <button
                         onClick={() => toggleApprove(i)}
                         className={`text-sm px-3 py-2 rounded-lg font-medium transition ${

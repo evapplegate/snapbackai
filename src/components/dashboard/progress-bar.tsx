@@ -15,7 +15,7 @@ export function ProgressBar() {
 
   return (
     <div className="rounded-xl border border-border bg-card p-6">
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F5C518]/10">
             <Target className="h-5 w-5 text-[#F5C518]" />
@@ -29,7 +29,7 @@ export function ProgressBar() {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2 text-right">
+        <div className="flex items-center gap-2 sm:text-right">
           <Download className="h-4 w-4 text-muted-foreground" />
           <span className="text-2xl font-bold text-[#F5C518]">
             {formatNumber(currentDownloads)}
@@ -41,20 +41,17 @@ export function ProgressBar() {
         </div>
       </div>
 
-      {/* Progress Bar */}
       <div className="relative h-4 overflow-hidden rounded-full bg-secondary">
         <div
           className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[#F5C518] to-[#f5d54a] transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
-        {/* Milestone markers */}
         <div className="absolute left-[10%] top-0 h-full w-0.5 bg-border/50" />
         <div className="absolute left-[25%] top-0 h-full w-0.5 bg-border/50" />
         <div className="absolute left-[50%] top-0 h-full w-0.5 bg-border/50" />
         <div className="absolute left-[75%] top-0 h-full w-0.5 bg-border/50" />
       </div>
 
-      {/* Milestone labels */}
       <div className="mt-2 flex justify-between text-xs text-muted-foreground">
         <span>100K</span>
         <span>250K</span>

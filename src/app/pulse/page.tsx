@@ -202,7 +202,7 @@ export default function PulsePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
+    <div className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         <BackButton />
 

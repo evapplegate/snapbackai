@@ -228,7 +228,7 @@ export default function CampaignPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
+    <div className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         <BackButton />
 
@@ -247,7 +247,8 @@ export default function CampaignPage() {
         </div>
 
         <div className="bg-[#161616] border border-[#262626] rounded-xl p-6 mb-8">
-          <div className="grid grid-cols-3 gap-4 mb-6">
+          {/* ↓ stacks to 1-col on mobile, 3-col on sm+ */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div>
               <label className="text-sm text-zinc-400 mb-2 block">Current Downloads</label>
               <input
@@ -358,12 +359,12 @@ export default function CampaignPage() {
         {campaign && !loading && (
           <div>
             <div className="bg-[#161616] border border-[#F5C518]/30 rounded-xl p-6 mb-6">
-              <div className="flex items-start justify-between mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
                   <h2 className="text-2xl font-bold text-white">{campaign.campaignName}</h2>
                   <p className="text-zinc-400 text-sm mt-1">{campaign.summary}</p>
                 </div>
-                <div className="text-right">
+                <div className="sm:text-right shrink-0">
                   <div className="text-[#F5C518] font-bold text-2xl">
                     {formatNumber(campaign.totalProjectedDownloads)}
                   </div>
@@ -384,18 +385,18 @@ export default function CampaignPage() {
                     className="w-full flex items-center justify-between p-5 hover:bg-[#1a1a1a] transition"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="bg-[#F5C518] text-black font-bold text-sm w-10 h-10 rounded-lg flex items-center justify-center">
+                      <div className="bg-[#F5C518] text-black font-bold text-sm w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
                         W{week.week}
                       </div>
                       <div className="text-left">
                         <p className="font-medium text-white">{week.theme}</p>
-                        <p className="text-xs text-zinc-500 mt-0.5">{week.kpi}</p>
+                        <p className="text-xs text-zinc-500 mt-0.5 hidden sm:block">{week.kpi}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="text-right">
                         <p className="text-[#F5C518] font-bold">+{formatNumber(week.projectedNewDownloads)}</p>
-                        <p className="text-xs text-zinc-500">new downloads</p>
+                        <p className="text-xs text-zinc-500 hidden sm:block">new downloads</p>
                       </div>
                       <span className="text-zinc-400">{expandedWeek === week.week ? "▲" : "▼"}</span>
                     </div>

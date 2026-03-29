@@ -94,7 +94,7 @@ export default function BriefPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
+    <div className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         <BackButton />
 
@@ -150,7 +150,7 @@ export default function BriefPage() {
                   <div className="h-4 w-5/6 rounded bg-zinc-800 animate-pulse" />
                   <div className="h-4 w-4/6 rounded bg-zinc-800 animate-pulse" />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-[#1f1f1f] rounded-lg p-3 space-y-2">
                     <div className="h-3 w-16 rounded bg-zinc-700 animate-pulse" />
                     <div className="flex gap-2">
