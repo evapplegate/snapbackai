@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Activity, FileText, Gamepad2, Gift, Zap, CalendarRange, FlaskConical, Bell, Users, X } from "lucide-react"
+import { LayoutDashboard, Activity, FileText, Gamepad2, Gift, Zap, CalendarRange, FlaskConical, Bell, Users, Calendar, X } from "lucide-react"
 
 const navItems = [
   { name: "Dashboard", icon: LayoutDashboard, href: "/" },
@@ -15,6 +15,7 @@ const navItems = [
   { name: "Campaign Planner", icon: CalendarRange, href: "/campaign" },
   { name: "Push Intelligence", icon: Bell, href: "/push" },
   { name: "Audience Intelligence", icon: Users, href: "/audience" },
+  { name: "Content Calendar", icon: Calendar, href: "/calendar" },
 ]
 
 interface SidebarProps {

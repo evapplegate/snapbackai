@@ -11,7 +11,8 @@ import {
   ArrowRight,
   CalendarRange,
   Bell,
-  Users
+  Users,
+  Calendar
 } from "lucide-react"
 
 const modules = [
@@ -91,6 +92,16 @@ const modules = [
   iconBg: "bg-cyan-500/10",
   iconColor: "text-cyan-400",
   href: "/audience",
+  },
+
+  {
+  name: "Content Calendar",
+  description: "30-day social media posting schedule across X, Instagram, TikTok, and Reddit — ready to copy and post.",
+  icon: Calendar,
+  color: "from-violet-500/20 to-violet-600/5",
+  iconBg: "bg-violet-500/10",
+  iconColor: "text-violet-400",
+  href: "/calendar",
   },
 ]
 
