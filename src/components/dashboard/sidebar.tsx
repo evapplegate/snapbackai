@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Activity, FileText, Gamepad2, Gift, Zap, CalendarRange, FlaskConical, X } from "lucide-react"
+import { LayoutDashboard, Activity, FileText, Gamepad2, Gift, Zap, CalendarRange, FlaskConical, Bell, X } from "lucide-react"
 
 const navItems = [
   { name: "Dashboard", icon: LayoutDashboard, href: "/" },
@@ -13,6 +13,7 @@ const navItems = [
   { name: "Influencer Kit", icon: Gift, href: "/influencer" },
   { name: "Feature Lab", icon: FlaskConical, href: "/featurelab" },
   { name: "Campaign Planner", icon: CalendarRange, href: "/campaign" },
+  { name: "Push Intelligence", icon: Bell, href: "/push" },
 ]
 
 interface SidebarProps {
@@ -47,7 +48,6 @@ export function Sidebar({ isOpen = false, onClose }: SidebarProps) {
               <span className="text-xs font-medium text-[#F5C518]">Intelligence</span>
             </div>
           </div>
-          {/* Close button — mobile only */}
           <button
             onClick={onClose}
             className="md:hidden text-muted-foreground hover:text-foreground p-1"
@@ -56,7 +56,7 @@ export function Sidebar({ isOpen = false, onClose }: SidebarProps) {
           </button>
         </div>
 
-        <nav className="flex-1 px-3 py-4">
+        <nav className="flex-1 px-3 py-4 overflow-y-auto">
           <ul className="flex flex-col gap-1">
             {navItems.map((item) => (
               <li key={item.name}>

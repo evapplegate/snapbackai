@@ -9,7 +9,8 @@ import {
   Gift,
   FlaskConical,
   ArrowRight,
-  CalendarRange
+  CalendarRange,
+  Bell
 } from "lucide-react"
 
 const modules = [
@@ -69,6 +70,16 @@ const modules = [
     iconBg: "bg-teal-500/10",
     iconColor: "text-teal-400",
     href: "/campaign",
+  },
+
+  {
+  name: "Push Intelligence",
+  description: "Generate high-converting push notifications tied to real sports moments with predicted open rates.",
+  icon: Bell,
+  color: "from-yellow-500/20 to-yellow-600/5",
+  iconBg: "bg-yellow-500/10",
+  iconColor: "text-yellow-400",
+  href: "/push",
   },
 ]
 
